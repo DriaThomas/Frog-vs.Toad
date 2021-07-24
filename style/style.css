@@ -1,0 +1,65 @@
+*{
+    cursor: url("/images/magicWand1.png"), pointer; 
+}
+
+
+body{
+margin: 0;
+background-image: url("/images/pondback.png");
+background-repeat: no-repeat;
+background-size: cover;
+display: flex;
+flex-direction: column;
+justify-content: space-evenly;
+align-items: center;
+
+}
+
+
+.pad{
+    width: 50px;
+    height: 50px;
+    position: absolute;
+    bottom: 240px;
+    margin-left: 40px;
+   
+    
+}
+.pad img{
+    width: 100px;
+    display: flex;
+    align-items: center;
+   
+}
+
+.container{
+   
+    display: flex;
+align-items: center;
+}
+canvas{
+    border:  solid rgb(0, 183, 255);
+     
+}
+.instructions{
+    width: 200px;
+    position: absolute;
+    right: 100px;
+    bottom: 500px;
+border: white solid;
+   background-color: white;
+   background-color: rgba(255, 255, 255, 0.5);
+ padding: 10px;
+ 
+}
+
+.instructions h1{
+    color: grey;
+}
+input{
+    position: absolute;
+    right: 130px;
+    bottom: 400px;
+   width: 200px;
+   height: 100px;
+}
