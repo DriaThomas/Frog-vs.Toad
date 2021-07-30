@@ -6,29 +6,40 @@
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Froggy vs. Toad</title>
-    <link rel="stylesheet" href="./style/style.css" />
+    <link rel="stylesheet" href="/style.css" />
 
 
 </head>
 
 <body>
 
-    <input id='start-button' type="image" src="images/start.png" />
+    <input id='start-button' type="image" src="../images/start.png" />
 
     <div class=background>
-        <div id="logo">
+        <!-- <img src="../images/pondback.png"  id="backgroundImg"/> -->
+        <div class="logo">
 
-            <img src="./images/logo.png" width="70" height="60">
+            <img id="frogLogo" src="../images/logo.png" width="250" height="150">
+            <img id="vsLogo" src="./images/vs-logo.png" width="150" height="150">
+
+            <img id="toadLogo" src="./images/toadLogo.png" width="350" height="150">
+
+
         </div>
 
+
         <div class="main">
-            <div id="score"></div>
-            <!-- <canvas id="canvas" width="500" height="500">
+            <div id="data">
+                <div id="score">Score: </div>
+                <p id="time">Time: 10s</p>
+
+                <!-- <canvas id="canvas" width="500" height="500">
                 <img id="img" src="./images/frog.png" alt="frogs" width="70" height="70">
             </canvas> -->
-            <!-- <div id="start" url('./images/start.png') width="200" height="100"></div> -->
-            <div class="container">
-                <!-- -- <table class="pad">
+                <!-- <div id="start" url('./images/start.png') width="200" height="100"></div> -->
+                <div class="container">
+                    <div class="winner"></div>
+                    <!-- -- <table class="pad">
                     <tr class=row2>
                         <td><img class='frogy' src="images/lilyPad.png" alt="frog" /></td>
                         <td><img class='frogy 2' src="images/lilyPad.png" alt="frog" /></td>
@@ -52,7 +63,7 @@
                     </tr>
 
                 </table> -->
-                <!-- <img class='frogy' src="images/frog.png" alt="frog" />
+                    <!-- <img class='frogy' src="images/frog.png" alt="frog" />
                 <img class='frogy 2' src="images/frog.png" alt="frog" />
                 <img class='frogy 3' src="images/frog.png" alt="frog" />
                 <img class='frogy 4' src="images/frog.png" alt="frog" />
@@ -64,9 +75,9 @@
                 <img class='frogy 10' src="images/frog.png" alt="frog" />
                 <img class='frogy 11' src="images/frog.png" alt="frog" /> -->
 
-                <!-- <img id="img" src="./images/frog.png" alt="frogs" width="70" height="70"> -->
-            </div>
-            <!-- 
+                    <!-- <img id="img" src="./images/frog.png" alt="frogs" width="70" height="70"> -->
+                </div>
+                <!-- 
             <table class="pad">
                 <tr>
                     <td><img src="./images/lilyPad.png"></td>
@@ -90,20 +101,20 @@
                 </tr>
 
             </table> -->
+            </div>
+
+
+            <section class="instructions">
+                <h2>Instructions</h2>
+                <p>Eliminate the brown toads but make sure you don't touch the green frogs! Do it quickly before
+                    time runs out!🐸</p>
+            </section>
         </div>
-
-
-        <section class="instructions">
-            <h2>Instructions</h2>
-            <p>Use your magic wand to change the toads into a frogs! Do it quickly before
-                time runs out!🐸</p>
-        </section>
-    </div>
-    <!-- order of imports DOES MATTER -->
-    <!-- <script src="js/Component.js"></script> -->
-    <!-- <script src="js/Player.js"></script> -->
-    <!-- <script src="js/Game.js"></script> -->
-    <script src="js/index.js"></script>
+        <!-- order of imports DOES MATTER -->
+        <!-- <script src="js/Component.js"></script> -->
+        <!-- <script src="js/Player.js"></script> -->
+        <!-- <script src="js/Game.js"></script> -->
+        <script src="js/index.js"></script>
 
 </body>
 
