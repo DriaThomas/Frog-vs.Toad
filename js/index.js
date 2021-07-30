@@ -1,219 +1,346 @@
-// const game = new Game();
+const container = document.querySelector('.container');
+const playerScore = document.getElementById('score');
 
-// game.start();
+let frogsOnScreen = null;
+let score = 0;
 
-const canvas = document.getElementById('canvas')
-const context = canvas.getContext('2d');
 
-// const score = document.getElementById('score');
-// // context.fillStyle("blue");
+for (let i = 0; i < 16; i++) {
+    container.innerHTML += `
+    <div class="lilyPad" id="lilyPad-${i}"></div>
+    `
+}
+//add toads
+function generateFrog() {
+    const randomLeafIndex = Math.floor(Math.random() * 16);
+    const randomLeafDiv = document.getElementById(`lilyPad-${randomLeafIndex}`);
+    randomLeafDiv.innerHTML = `
+        <img src='./images/toad.png' height='100px' width='100px' name='toad' />
+    `
+    frogsOnScreen = setTimeout(() => {
+        randomLeafDiv.innerHTML = ''
+        generateFrog();
+    }, 500 + Math.random() * 750);
+}
+//add frogs
+function generateToad() {
+    const randomLeafIndex = Math.floor(Math.random() * 16);
+    const randomLeafDiv = document.getElementById(`lilyPad-${randomLeafIndex}`);
+    randomLeafDiv.innerHTML = `
+        <img src='./images/frog.png' height='100px' width='100px' name='frog' />
+    `
+    frogsOnScreen = setTimeout(() => {
+        randomLeafDiv.innerHTML = ''
+        generateToad();
+    }, 500 + Math.random() * 750);
+}
 
-// const score = 0;
-let interval = 60;
-let animateaFrog;
 
+container.addEventListener('click', (event) => {
+    console.log(event.target);
+    if (event.target.name === 'toad') {
+        event.target.remove();
+        score++;
+        playerScore.innerHTML = `SCORE: ${score} `;
+
+        clearTimeout(frogsOnScreen);
+        generateFrog();
+    }
+})
+
+
+
+
+
+container.addEventListener('click', (event) => {
+    console.log(event.target);
+    if (event.target.name === 'frog') {
+        event.target.remove();
+        score--;
+        playerScore.innerHTML = `SCORE:  ${score} `;
+
+        clearTimeout(frogsOnScreen);
+        generateToad();
+    }
+})
+
+
+// generateToad();
+// generateFrog();
+
+function gameOver() {
+
+    if (playerScore > -1) {
+
+        document.body.style.backgroundColor = "red";
+
+        clearTimeout(frogsOnScreen);
+    }
+}
+gameOver();
+window.onload = () => {
+    document.getElementById('start-button').onclick = () => {
+        startGame();
+    };
+    function startGame() {
+        generateToad();
+        generateFrog();
+    }
+}
+// if(score === -1){
+
+// }
+
+// const canvas = document.getElementById('canvas');
+// const context = canvas.getContext('2d');
+
+// let interval = 60;
+// //let score = 0;
+// let elements = [];
+// let frog1 = new Image();
+
+
+// function init() {
+//     frog1.src = './images/frog.png';
+
+//     window.requestAnimationFrame(draw);
+// }
+
+// const frogsPos = [[150, 150, 70, 70], [150, 250, 70, 70], [150, 350, 70, 70]]
+
+// let randomFrogPos = [150, 150, 70, 70]
+
+// function pickRandomFrog() {
+//     const randomFrogIndex = Math.floor(Math.random() * frogsPos.length);
+//     setTimeout(() => {
+//         randomFrogPos = frogsPos[randomFrogIndex];
+//         pickRandomFrog()
+//     }, 500 + Math.random * 1000)
+// }
+
+// function draw() {
+//     // const elem = document.getElementById('myCanvas');
+//     // const context = elem.getContext('2d');
+
+//     context.globalCompositeOperation = 'destination-over';
+//     context.clearRect(0, 0, 500, 500); // clear canvas
+//     context.fillText(`Score: ${score}`, 0, 0);
+//     context.fillStyle = "blue";
+//     context.font = "50px Arial";
+//     alert(`score: ${score}`);
+//     context.clearRect(0, 0, 300, 100);
+//     context.fillStyle = 'rgba(0, 0, 0, 0.4)';
+//     context.strokeStyle = 'rgba(0, 153, 255, 0.4)';
+//     context.save();
+//     context.drawImage(frog1, ...randomFrogPos);
+// }
+
+// // frog
+
+// // setInterval(function () {
+
+// //     // const randomPos= elements[Math.floor(Math.random()* elements.length)];
+// //     // const frogsX = [150, 265, 20, 375, 30];
+// //     // // //     // const frogsY = [150, 250, 350];
+
+// // context.drawImage(frog1, 150, 150, 70, 70);
+
+// // }, 2000);
+
+
+// // setInterval(function () {
+// //     context.clearRect(150, 150, 70, 70);
+// // }, 3000);
+// // context.clearRect(150, 150, 70, 70);
+// //
+
+// // setInterval(function () {
+// //     context.drawImage(frog1, 150, 250, 70, 70);
+// // }, 3000);
+
+// // setInterval(function () {
+// //     context.clearRect(150, 250, 70, 70);
+// // }, 5000);
+// // context.clearRect(150, 250, 70, 70);
+
+// // //
+// // setInterval(function () {
+// //     context.drawImage(frog1, 150, 350, 70, 70);
+
+// // }, 5000);
+
+// // setInterval(function () {
+// //     context.clearRect(150, 350, 70, 70);
+// // }, 5000);
+// // context.clearRect(150, 350, 70, 70);
+// // //
+// // setInterval(function () {
+// //     context.drawImage(frog1, 265, 150, 70, 70);
+
+// // }, 8000);
+
+// // setInterval(function () {
+// //     context.clearRect(265, 150, 70, 70);
+// // }, 3000);
+// // context.clearRect(265, 150, 70, 70);
+// // //
+// // setInterval(function () {
+// //     context.drawImage(frog1, 265, 250, 70, 70);
+
+// // }, 3000);
+
+// // setInterval(function () {
+// //     context.clearRect(265, 250, 70, 70);
+// // }, 7000);
+// // context.clearRect(265, 250, 70, 70);
+// // //
+// // setInterval(function () {
+// //     context.drawImage(frog1, 265, 350, 70, 70);
+
+// // }, 5000);
+
+// // setInterval(function () {
+// //     context.clearRect(265, 350, 70, 70);
+// // }, 3000);
+// // context.clearRect(265, 350, 70, 70);
+
+
+
+
+// var myUpBtn;
 
 // let score = 0;
-// const frogsHit = 0;
-// const totalFrogs = 10;
-// const lastFrogs;
 
+// function clickFrogs() {
 
-// const frogs1 = {
-//     img: './images/frog.png',
-//     width: 70,
-//     height: 70
+//     myUpBtn = new component('./images/frog.png', 70, 70, 70, 200);
+//     myGameArea.start();
 // }
 
 
-
-const drawBackground = () => {
-
-    // context.font = "20px Arial";
-    // context.fillStyle = "#0095DD";
-    // context.fillText("Score: " + score, 8, 20);
-
-
-
-    const backgroundImage = new Image();
-    backgroundImage.src = './images/water.jpg';
-    context.drawImage(backgroundImage, 0, 0, canvas.width, canvas.height);
-
-
-
-
-    const lily = new Image();
-    lily.src = "./images/lilyPad.png";
-    context.drawImage(lily, 20, 150, 100, 100);
-
-    const lily4 = new Image();
-    lily4.src = "./images/lilyPad.png";
-    context.drawImage(lily4, 20, 250, 100, 100);
-
-    const lily5 = new Image();
-    lily5.src = "./images/lilyPad.png";
-    context.drawImage(lily5, 20, 350, 100, 100);
-
-    const lily11 = new Image();
-    lily11.src = "./images/lilyPad.png";
-    context.drawImage(lily11, 150, 150, 100, 100);
-
-    const lily9 = new Image();
-    lily9.src = "./images/lilyPad.png";
-    context.drawImage(lily9, 150, 250, 100, 100);
-
-    const lily8 = new Image();
-    lily8.src = "./images/lilyPad.png";
-    context.drawImage(lily8, 150, 350, 100, 100);
-
-    const lily2 = new Image();
-    lily2.src = "./images/lilyPad.png";
-    context.drawImage(lily2, 265, 150, 100, 100);
-
-    const lily7 = new Image();
-    lily7.src = "./images/lilyPad.png";
-    context.drawImage(lily7, 265, 250, 100, 100);
-
-    const lily6 = new Image();
-    lily6.src = "./images/lilyPad.png";
-    context.drawImage(lily6, 265, 350, 100, 100);
-
-    const lily3 = new Image();
-    lily3.src = "./images/lilyPad.png";
-    context.drawImage(lily3, 375, 150, 100, 100);
-
-    const lily10 = new Image();
-    lily10.src = "./images/lilyPad.png";
-    context.drawImage(lily10, 375, 250, 100, 100);
-
-    const lily12 = new Image();
-    lily12.src = "./images/lilyPad.png";
-    context.drawImage(lily12, 375, 350, 100, 100);
-
-    // const frogsX = [150, 265, 20, 375, 30];
-    // const frogsY = [150, 250, 350];
-
-    // const frogs = new Image();
-    // frogs.src = "./images/frog.png";
-    // context.drawImage(frogs, 150, 150, 70, 70);
-    // context.drawImage(frogs, 150, 250, 70, 70);
-    // context.drawImage(frogs, 150, 350, 70, 70);
-    // context.drawImage(frogs, 265, 150, 70, 70);
-    // context.drawImage(frogs, 265, 250, 70, 70);
-    // context.drawImage(frogs, 265, 350, 70, 70);
-
-};
-
-
-
-
-const drawEverything = () => {
-    context.clearRect(0, 0, canvas.width, canvas.height);
-    lily = setInterval(() => drawBackground(), interval);
-    frogs = setInterval(() => addFrog(), interval);
-};
-
-// const drawLoop = () => {
-//     context.clearRect(0, 0, canvas.width, canvas.height);
-
-
-// }
-
-
-
-// canvas.addEventListener('click', (event) => {
-//     const canvasbound = canvas.getBoundingClientRect();
-//     const x = event.clientX - canvasbound.left;
-//     const y = event.clientY - canvasbound.top;
-//     console.log('x: ' + x + 'y: ' + y);
-
-
-// });
-// // result.addEventListener("click", function () {
-// //     score.innterHTML = "Score: " + score;
-// //     score++;;
-
-// //         ;
-// //     });
-// // }
-// const collison = (xmouse, ymouse) => {
-//     if (xmouse === addFrog && ymouse === addFrog) {
-//         return score++;
+// var myGameArea = {
+//     canvas: document.createElement("canvas"),
+//     start: function () {
+//         this.canvas.width = 480;
+//         this.canvas.height = 270;
+//         this.context = this.canvas.getContext("2d");
+//         document.body.insertBefore(this.canvas, document.body.childNodes[0]);
+//         this.interval = setInterval(updateGameArea, 20);
+//         window.addEventListener('mousedown', function (e) {
+//             myGameArea.x = e.pageX;
+//             myGameArea.y = e.pageY;
+//         })
+//         window.addEventListener('mouseup', function (e) {
+//             myGameArea.x = false;
+//             myGameArea.y = false;
+//         })
+//         window.addEventListener('touchstart', function (e) {
+//             myGameArea.x = e.pageX;
+//             myGameArea.y = e.pageY;
+//         })
+//         window.addEventListener('touchend', function (e) {
+//             myGameArea.x = false;
+//             myGameArea.y = false;
+//         })
+//     },
+//     clear: function () {
+//         this.context.clearRect(0, 0, this.canvas.width, this.canvas.height);
 //     }
+// }
 
+// function component(imageSrc, width, height, x, y) {
+//     this.width = width;
+//     this.height = height;
+//     this.speedX = 0;
+//     this.speedY = 0;
+//     this.x = x;
+//     this.y = y;
+//     this.img = new Image();
+//     this.img.src = imageSrc;
+//     this.update = function () {
+//         ctx = myGameArea.context;
+//         //ctx.fillStyle = color;
+//         ctx.drawImage(this.img, this.x, this.y, this.width, this.height);
+
+//         //ctx.fillRect(this.x, this.y, this.width, this.height);
+//     }
+//     this.clicked = function () {
+//         const myleft = this.x;
+//         const myright = this.x + (this.width);
+//         const mytop = this.y;
+//         const mybottom = this.y + (this.height);
+//         const clicked = true;
+//         if ((mybottom < myGameArea.y) || (mytop > myGameArea.y) || (myright < myGameArea.x) || (myleft > myGameArea.x)) {
+//             clicked = false;
+
+//         }
+//         return clicked;
+//     }
+// }
+
+// function updateGameArea() {
+//     myGameArea.clear();
+//     if (myGameArea.x && myGameArea.y) {
+//         if (myUpBtn.clicked()) {
+//             score++;
+//             alert(`Score: ${score}`);
+//         }
+
+//     }
+//     myUpBtn.update();
+//     myDownBtn.update();
+//     myLeftBtn.update();
+//     myRightBtn.update();
+//     myGamePiece.update();
 // }
 
 
-// }
-//randomize frog postion
-const addFrog = () => {
-
-
-    const frogs = new Image();
-    frogs.src = "./images/frog.png";
-
-    // context.drawImage(frogs, 150, 150, 70, 70);
-    // context.drawImage(frogs, 150, 250, 70, 70);
-    // context.drawImage(frogs, 150, 350, 70, 70);
-    // context.drawImage(frogs, 265, 150, 70, 70);
-    // context.drawImage(frogs, 265, 250, 70, 70);
-    // context.drawImage(frogs, 265, 350, 70, 70);
-    // context.drawImage(frogs, 20, 150, 70, 70);
-    // context.drawImage(frogs, 20, 250, 70, 70);
-    // context.drawImage(frogs, 20, 350, 70, 70);
-    // context.drawImage(frogs, 375, 150, 70, 70);
-    // context.drawImage(frogs, 375, 250, 70, 70);
-    // context.drawImage(frogs, 375, 350, 70, 70);
-
-    const frogsX = [150, 265, 20, 375];
-    const frogsY = [150, 250, 350];
-
-
-    const randomPosX = frogsX[Math.floor(Math.random() * frogsX.length)];
-    const randomPosY = frogsY[Math.floor(Math.random() * frogsY.length)];
-    return context.drawImage(frogs, randomPosX, randomPosY, 70, 70);
-
-
-}
 
 
 
 
 
-// document.getElementById('start').onclick = () => {
-// document.getElementById('start').addEventListener('click', function (e) {
+// // function scores() {
+// //     elem.onclick = function () {
+// //         // img clicked
 
-// startGame();
-// }
-// }
-// window.onload = function () {
+// //         score++;
 
-//     document.getElementById('start').addEventListener('click', function () {
-//         startGame();
-//     });
+// //         // context.fillText(`Score: ${score}`, 0, 0);
+// //         // context.fillStyle = "blue";
+// //         // context.font = "50px Arial";
+// //         // alert(`score: ${score}`);
+// //         // context.clearRect(0, 0, 300, 100);
+// //     };
 
-// };
+// // }
 
+// // //frogs clicked
+// // function clickedFrogs(){
 
+// // }
 
 // function startGame() {
-//     drawBackground();
-//     drawEverything();
-//     // addFrog();
-//     // drawLoop();
-//     // collison();
+
+//     init();
+//     // scores();
+//     pickRandomFrog();
+//     clickFrogs();
+//     // myUpBtn.update();
+//     // myDownBtn.update();
+//     // myLeftBtn.update();
+//     // myRightBtn.update();
+//     // myGamePiece.update();
 // }
 
-window.onload = () => {
-    document.getElementById('start').onclick = () => {
-        startGame();
+// window.onload = () => {
+//     document.getElementById('start').onclick = () => {
+//         startGame();
 
-    };
-}
 
-function startGame() {
-    drawEverything();
-    // collison();
-    addFrog();
+//     };
+// }
 
-}
+
+
+
