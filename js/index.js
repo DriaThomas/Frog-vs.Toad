@@ -111,8 +111,8 @@ function time() {
             clearInterval(x);
             // clearInterval(generateToad);
             // clearInterval(generateFrog);
-            clearTimeout(ToadOnScreen);
-            clearTimeout(FrogOnScreen);
+            // clearTimeout(ToadOnScreen);
+            // clearTimeout(FrogOnScreen);
             clearTimeout(score);
         }
         else if (seconds === 0 && score <= 0) {
@@ -120,13 +120,13 @@ function time() {
             clearInterval(x);
             // clearInterval(generateToad);
             // clearInterval(generateFrog);
-            clearTimeout(ToadOnScreen);
-            clearTimeout(FrogOnScreen);
+            // clearTimeout(ToadOnScreen);
+            // clearTimeout(FrogOnScreen);
             clearTimeout(score);
         }
 
 
-    }, 1000);
+    }, 500);
 
 }
 
