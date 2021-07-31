@@ -13,7 +13,7 @@ html, body {
 body{
     /* cursor: url("/images/magicWand1.png"), pointer;  */
 margin: 0;
-background-image: url("/images/pondback.png");
+background-image: url("images/pondback.png");
 background-repeat: no-repeat;
 background-size: auto 100%;
 display: flex;
@@ -81,7 +81,7 @@ input{
 .lilyPad {
     width:150px;
     height:165px;
-    background-image: url(/images/lilyPad.png);
+    background-image: url(images/lilyPad.png);
     background-size: cover;
     background-repeat: no-repeat;
   
