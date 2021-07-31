@@ -21,7 +21,7 @@ function generateFrog() {
     const randomLeafIndex = Math.floor(Math.random() * 16);
     const randomLeafDiv = document.getElementById(`lilyPad-${randomLeafIndex}`);
     randomLeafDiv.innerHTML = `
-        <img src='/images/toad.png' height='100px' width='100px' name='toad' />
+        <img src='./images/toad.png' height='100px' width='100px' name='toad' />
     `
     frogsOnScreen = setTimeout(() => {
         randomLeafDiv.innerHTML = ''
@@ -34,7 +34,7 @@ function generateToad() {
     const randomLeafIndex = Math.floor(Math.random() * 16);
     const randomLeafDiv = document.getElementById(`lilyPad-${randomLeafIndex}`);
     randomLeafDiv.innerHTML = `
-        <img src='/images/frog.png' height='100px' width='100px' name='frog' />
+        <img src='./images/frog.png' height='100px' width='100px' name='frog' />
     `
     ToadOnScreen = setTimeout(() => {
         randomLeafDiv.innerHTML = ''
