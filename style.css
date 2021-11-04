@@ -3,24 +3,36 @@
     pointer-events: none;
   
 } */
-html, body {
-    margin: 0; 
-    height: 100%; 
-    overflow: hidden;
-    
-} 
+html,
+body {
+  margin: 0;
+  height: 100%;
+  overflow: hidden;
+}
 
-body{
-    /* cursor: url("/images/magicWand1.png"), pointer;  */
-margin: 0;
-background-image: url("images/pondback.png");
-background-repeat: no-repeat;
-background-size: auto 100%;
-display: flex;
-flex-direction: column;
-justify-content: space-evenly;
-align-items: center;
+@media screen and (min-width: 480px) {
+  body {
+    background-color: lightgreen;
+    background-size: 20%;
+  }
+  h1 {
+    font-size: 10px;
+  }
+  .logo {
+    font-size: 10px;
+  }
+}
 
+body {
+  /* cursor: url("/images/magicWand1.png"), pointer;  */
+  margin: 0;
+  background-image: url("images/pondback.png");
+  background-repeat: no-repeat;
+  background-size: auto 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-evenly;
+  align-items: center;
 }
 
 /* 
@@ -42,78 +54,73 @@ align-items: center;
     border:  solid rgb(0, 183, 255);
     z-index: -3;
 } */
-.instructions{
-    width: 200px;
-    position: absolute;
-    right: 100px;
-    bottom: 500px;
-  color:rgba(77, 73, 73);
-  font-family: 'Courier New', Courier, monospace;
-   background-color: rgba(255, 255, 255, 0.5);
-   border-radius: 25px;
-    padding: 10px;
-    align-items: center;
+.instructions {
+  width: 200px;
+  position: absolute;
+  right: 100px;
+  bottom: 500px;
+  color: rgba(77, 73, 73);
+  font-family: "Courier New", Courier, monospace;
+  background-color: rgba(255, 255, 255, 0.5);
+  border-radius: 25px;
+  padding: 10px;
+  align-items: center;
 }
 
-.instructions h1{
-    color: black;
-   
+.instructions h1 {
+  color: black;
 }
-input{
-    position: absolute;
-    right: 130px;
-    bottom: 400px;
-   width: 200px;
-   height: 100px;
+input {
+  position: absolute;
+  right: 130px;
+  bottom: 400px;
+  width: 200px;
+  height: 100px;
 }
 
- .container{
-    height: 600px;
-    width: 600px;
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    align-content: space-around;
-    /* border: 5px red solid; */
-    flex-wrap: wrap;
-} 
+.container {
+  height: 600px;
+  width: 600px;
+  display: flex;
+  justify-content: space-around;
+  align-items: center;
+  align-content: space-around;
+  /* border: 5px red solid; */
+  flex-wrap: wrap;
+}
 
 .lilyPad {
-    width:150px;
-    height:165px;
-    background-image: url(images/lilyPad.png);
-    background-size: cover;
-    background-repeat: no-repeat;
-  
+  width: 150px;
+  height: 165px;
+  background-image: url(images/lilyPad.png);
+  background-size: cover;
+  background-repeat: no-repeat;
 }
-#score{
-font-size: 50px;
-color:grey;
-font-weight: bold;
-padding-bottom: 45px;
-width:280px;
-font-family: 'Courier New', Courier, monospace;
-
+#score {
+  font-size: 50px;
+  color: grey;
+  font-weight: bold;
+  padding-bottom: 45px;
+  width: 280px;
+  font-family: "Courier New", Courier, monospace;
 }
-#time{
-    font-size: 50px;
-    color:grey;
-    font-weight: bold;
-position: absolute;
-right: 450px;
-top: 2px;
-font-family: 'Courier New', Courier, monospace;
-    
+#time {
+  font-size: 50px;
+  color: grey;
+  font-weight: bold;
+  position: absolute;
+  right: 450px;
+  top: 2px;
+  font-family: "Courier New", Courier, monospace;
 }
-#data{
-    display:flex;
-    justify-content: space-around;
-    flex-direction: column;
-  
+#data {
+  display: flex;
+  justify-content: space-around;
+  flex-direction: column;
 }
-.logo{
-    position: absolute;
-   top: 160px;
+.logo {
+  position: absolute;
+  top: 160px;
   left: 60px;
   border-radius: 25px;
   background-color: rgba(255, 255, 255, 0.5);
@@ -121,9 +128,7 @@ font-family: 'Courier New', Courier, monospace;
   flex-direction: column;
   align-items: center;
   font-size: 50px;
-
 }
-#frogLogo{
-    display: flex;
-    
+#frogLogo {
+  display: flex;
 }
