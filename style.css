@@ -10,7 +10,7 @@ body {
   overflow: hidden;
 }
 
-@media screen and (min-width: 480px) {
+@media screen and (max-width: 600px) {
   body {
     background-color: lightgreen;
     background-size: 20%;
@@ -20,6 +20,9 @@ body {
   }
   .logo {
     font-size: 10px;
+  }
+  #score {
+    font-size: 5px;
   }
 }
 
