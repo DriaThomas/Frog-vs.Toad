@@ -26,8 +26,10 @@ body {
     font-size: 10px;
   }
   .logo {
-    width: 50%;
-    height: 50%;
+    position: absolute;
+    top: 200px;
+    width: 40%;
+    height: 25%;
   }
   #time {
     font-size: 10px;
@@ -40,8 +42,11 @@ body {
     height: 25%;
   }
   .lilyPad {
-    width: 25%;
-    height: 25%;
+    width: 50px;
+    height: 25px;
+  }
+  #time {
+    padding-top: 10px;
   }
 }
 
