@@ -1,7 +1,7 @@
-* {
+/* * {
   cursor: url("/images/magicWand1.png"), pointer;
   pointer-events: none;
-}
+} */
 html,
 body {
   margin: 0;
@@ -30,6 +30,8 @@ body {
     top: 200px;
     width: 40%;
     height: 25%;
+    display: flex;
+    justify-content: space-evenly;
   }
   #time {
     font-size: 10px;
@@ -40,6 +42,14 @@ body {
   #frogLogo {
     width: 40%;
     height: 25%;
+  }
+  #toadLogo {
+    width: 60%;
+    height: 70%;
+  }
+  #vsLogo {
+    width: 30%;
+    height: 70%;
   }
   .lilyPad {
     width: 50px;
