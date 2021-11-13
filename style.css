@@ -33,6 +33,11 @@ body {
     display: flex;
     justify-content: space-evenly;
   }
+  #start-button {
+    position: relative;
+    top: 30px;
+    left: 100px;
+  }
   #time {
     font-size: 10px;
   }
