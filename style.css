@@ -41,8 +41,14 @@ body {
   #time {
     font-size: 10px;
   }
+  .dataInfo {
+    display: flex;
+    flex-direction: column;
+  }
   #score {
     font-size: 40%;
+    position: relative;
+    bottom: 60px;
   }
   #frogLogo {
     width: 40%;
