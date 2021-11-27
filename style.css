@@ -8,7 +8,7 @@ body {
   height: 100%;
   overflow: hidden;
 }
-
+/*responsive */
 @media screen and (max-width: 1000px) {
   body {
     background-color: lightgreen;
