@@ -1,6 +1,7 @@
 * {
   cursor: url("/images/magicWand1.png"), pointer;
   pointer-events: none;
+  width: 10px;
 }
 html,
 body {
