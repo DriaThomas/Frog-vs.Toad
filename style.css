@@ -181,3 +181,7 @@ input {
 #frogLogo {
   display: flex;
 }
+.dataInfo {
+  border: 10px grey;
+  background-color: white;
+}
