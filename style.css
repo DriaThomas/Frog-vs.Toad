@@ -181,6 +181,7 @@ input {
 #frogLogo {
   display: flex;
 }
+/*score board*/
 .dataInfo {
   border: 10px grey;
   background-color: white;
